@@ -10,7 +10,7 @@ const scopes = [
   "user-top-read",
   "user-modify-playback-state",
 ];
-export const getTokenFromResponse = () => {
+export const getTokenFromUrl = () => {
   return window.location.hash
     .substring(1)
     .split("&")
