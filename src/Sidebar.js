@@ -1,9 +1,15 @@
 import React from "react";
 import "./Sidebar.css";
 import SidebarOption from "./SidebarOption";
-import HomeIcon from "@material-ui/icons/Home";
-import SearchIcon from "@material-ui/icons/Search";
-import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
+
+// import HomeIcon from "@material-ui/icons/Home";
+// import SearchIcon from "@material-ui/icons/Search";
+// import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
+
+import HomeIcon from "@mui/icons-material/Home";
+import SearchIcon from "@mui/icons-material/Search";
+import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
+
 function Sidebar() {
   return (
     <div className="sidebar">
