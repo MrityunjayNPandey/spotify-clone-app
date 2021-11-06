@@ -12,52 +12,60 @@ function App() {
   const [{ user, token }, dispatch] = useDataLayerValue();
   const [songs] = useState([
     {
-      title: "Titaliya",
-      artist: "Hardy Sandhu",
-      img_src: "./images/titaliya.jpg",
-      src: "./music/Titliaan Warga.mp3",
+      title: "Levitating",
+      artist: "Dua Lipa",
+      img_src:
+        "https://upload.wikimedia.org/wikipedia/en/f/f5/Dua_Lipa_-_Future_Nostalgia_%28Official_Album_Cover%29.png",
+      src: "https://mymp3bhojpuri.in/files/download/type/128/id/17928",
     },
     {
-      title: "Nach Meri Rani",
-      artist: "Yo Yo Honey Singh",
-      img_src: "./images/nach-meri-rani.jpg",
-      src: "./music/Naach Meri Rani.mp3",
+      title: "Build a Bitch",
+      artist: "Bella Poarch",
+      img_src:
+        "https://is4-ssl.mzstatic.com/image/thumb/Music125/v4/24/39/dc/2439dc3f-389e-3412-148f-7afb2c4296e9/054391922588.jpg/500x500bb.webp",
+      src: "https://www.pagolworld.in/files/download/id/6511",
     },
     {
-      title: "Care Ni Karda",
-      artist: "Yo Yo Honey Singh",
-      img_src: "./images/care-ni-karda.jpg",
-      src: "./music/Care Ni Karda.mp3",
+      title: "Dinero",
+      artist: "Trinidad Cardona",
+      img_src:
+        "https://i2.wp.com/www1.naijaforbe.com/wp-content/uploads/2021/09/1-2107.jpg?w=662&ssl=1",
+      src: "https://pagalaworld.in/files/download/type/128/id/30293",
     },
     {
-      title: "Burj Khalifa",
-      artist: "Shashi",
-      img_src: "./images/burjkalifa.jpg",
-      src: "./music/BurjKhalifa.mp3",
+      title: "Step On Up",
+      artist: "Ariana Grande",
+      img_src:
+        "https://i.scdn.co/image/ab67616d0000b2732e651648db439a9b5995e065",
+      src: "https://dl256.dlmate09.xyz/?file=M3R4SUNiN3JsOHJ6WWQ3aTdPRFA4NW1rRVJIOGhPY2hpSjRWeVZzV0VlVkJ0dDVwMGUyc0p2WmZMN01Ia00vd044ZGI0Q3JOYzlYT1lpbUVwc3RqRUZXQXNvUWJvRzNDOHBvbEY4cCtXMTIxMFBXM2t5RkpoZ25LYThqeU80SlBaM3gzZ0UxaXdDM2R3ZUdIL3hMOXZDQ0VpUXVHZERRRG9ENGZOUGpWck00ZWhqK1pQcUN3aThCRHZqREM1cGdS",
     },
     {
-      title: "Tango Del Fuego",
-      artist: "Parov Stelar",
-      img_src: "./images/ParovStelarGeorgiaGibbs-TangoDelFuego.jpg",
-      src: "./music/ParovStelarGeorgiaGibbs-TangoDelFuego.mp3",
+      title: "Hold On",
+      artist: "Justin Bieber",
+      img_src:
+        "https://i.scdn.co/image/ab67616d0000b273e6f407c7f3a0ec98845e4431",
+      src: "https://pagalworld.com.se/files/download/type/128/id/1383",
     },
     {
-      title: "Take You Dancing",
-      artist: "Jason Derulo",
-      img_src: "./images/JasonDerulo-TakeYouDancing.jpg",
-      src: "./music/JasonDerulo-TakeYouDancing.mp3",
+      title: "Summer of Love (Shawn Mendes & Tainy)",
+      artist: "Shawn Mendes",
+      img_src:
+        "https://i.scdn.co/image/ab67616d0000b273a111c87c210cc9bff93948bd",
+      src: "https://mymp3bhojpuri.in/files/download/type/128/id/31580",
     },
     {
-      title: "Daisy",
-      artist: "Ashnikko",
-      img_src: "./images/Ashnikko-Daisy.jpg",
-      src: "./music/Ashnikko-Daisy.mp3",
+      title: "What a Shame",
+      artist: "Leyla Blue",
+      img_src:
+        "https://i.scdn.co/image/ab67616d0000b273b8ccef77aa3a5833f2c2785b",
+      src: "https://dl90.dlmate49.xyz/?file=M3R4SUNiN3JsOHJ6WWQ3aTdPRFA4NW1rRVJIOGdQc2xqSjRiakNNckFLWko2SUEvaEtLbUtzVktFYmNPMllML1ZJeHk3REhOWmNXSk5VcmJrSlUyRVRiVDBkZDQ2eG5Xb1lNaFRjdy9WUm4xMEt2b2dUbDNuVGowUWN2RkZMVlRVbFZJaEJCNWd3aUF3K0dBOXhqbzREdXFva0xlUlFwTXR5TWJOT2ZWNVpaRjBEU2FPYVN5Z2NGUy9IN0xwSWxmaC9TZjRBPT0%3D",
     },
     {
-      title: "Dolly Song",
-      artist: "Partz Grimbad",
-      img_src: "./images/PatzGrimbard-DollySong.jpg",
-      src: "./music/PatzGrimbard-DollySong.mp3",
+      title: "Promiscuous Motive",
+      artist: "Josiane Lessard",
+      img_src:
+        "https://i.scdn.co/image/ab67616d0000b273fc4d4176928a0b91a2588755",
+      src: "https://ccii.bcbbecbddebaafe.xyz/?file=M3R4SUNiN3JsOHJ6WWQ3aTdPRFA4NW1rRVJIOGx1RXRtZHM3akRjeEFLVklvOFkzbk1xbEw4VldaWUVhMzU2akZkRWZ2ZzdLZnQyQ0l3eWN1WTAxQ1Y2TzQ5OHJ2SFRKOW84MEV1MStYQmV6dU9lMzNSeDNtZy9nYnBiQUJlc1FhMzUzcG45ejBqS2JrYlNHbnd6M3BtbTRwVWpHUGdJSG9taE9iOU9DdE0xdXpEdkdidVBoblpNS29HM1NxWnRiMC9HVHRUN3gwYk13dk5sS1JudDZkcHhSd0tYenl1TFlwRU1XdjRrTzFVQ3R1dUd6Q1lzbUk2aVJiVDVtT3gwUDdPNzdZeDhSeFNRaCsyMnF5YUlrL1dnY1laOXp3R2VRek1qOE5UNjNSNHo3WDhMQ0xlMnkrK3pYcFB4NXIwalRvL2ZPa1o4ZHgxNzBIcHF1RVlKWjZRa3d0LzZINTVrPQ%3D%3D",
     },
   ]);
 
