@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
+import PauseCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import ShuffleIcon from "@mui/icons-material/Shuffle";
@@ -8,27 +9,51 @@ import RepeatIcon from "@mui/icons-material/Repeat";
 import { Grid, Slider } from "@mui/material";
 import PlaylistPlayIcon from "@mui/icons-material/PlaylistPlay";
 import VolumeDownIcon from "@mui/icons-material/VolumeDown";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlay,
+  faPause,
+  faForward,
+  faBackward,
+} from "@fortawesome/free-solid-svg-icons";
+import IconButton from "@mui/material/IconButton";
 
-function Footer() {
+function Footer(props) {
   return (
     <div className="footer">
       <div className="footer__left">
-        <img
-          className="footer__albumLogo"
-          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUWFRgVFhUYGRgaGhgZGBoaGhoaGBoaGhoaGhwaGhgcIS4lIR4rIRoYJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QHhISGDQhJCsxNDQ0NDQ0NDQxNDQ0NDQ0MTQ0NDE0NDQ0NDE0NDQ0NDQxNDQ0NDQ0NDE0NDQ0NTQ0NP/AABEIAOEA4QMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAQUCAwQGB//EAEUQAAEDAgIHBwIBCQMNAAAAAAEAAhEDIQQxBRJBUWFx8CKBkaGxwdEy4XIGExQzQlJigvEjorIVNUNTc4OSk8LD0tPj/8QAGQEBAQEBAQEAAAAAAAAAAAAAAAECBAMF/8QAIBEBAQACAwEBAAMBAAAAAAAAAAECEQMSITFBBBMiMv/aAAwDAQACEQMRAD8A86iIo0IiICyWKIMkREEooRBKIiAiIgKVCIJREQEREBERAREQEREBFKICJCINYUIiAiIgyWKIgLJYogyRFg+oGiTkgzRcz8awCdYctqqv8uHWyBG77qaF8pXm8Xpdzo1AWjz6HuszplwZEdrLWOX9U0j0EqV5jDaVe25vOc593mrAabZYEbvHcE0LhFzYTFB7dYZSt4cDtVVkiIgIiICIiAiIgKVClAREQakREBERAREQERCYQY1agaJOSp9IaSDmljRYjOfZY6T0i141WzvvYKnDp9JSRB9YzfzUm+6Tt81EKJA2KiGkhZQduWanP+negMcOvsgxZ1l7rJ7t6mM78kDd9kGbKzg0sBIaTeF0YLGlhzJF7dxXG5vR3W+yOEcUHo8JphrgdeAQdkxCsmVARIMheKBAjYrHB6Te0BsyBbKe6VND0yLXRqazQd62IoiKUEIpRAREQJREQakREBERAREQFX6TxhYC0NMkWNo+VYLzula79ctOXW5SCvqPBMk32+C1gqXRtH271IA2ceoWkSwLNrDn3I1lwBbob10tYfpHOTxiR/Xgs2tSNLafXosjhjqhxaL8bgTab3Pyu2nhe00TuG0XJjLfF10YfD37VxMyN06pAGfh/SdmuqoLDsCxczyjh3q8FIHMWGyDcm1jIsSL3+01MMzVcIMA2IEa0m2ZsM/BOx0UYYYkBQ2n5+M9eqtn0tm4ZC2Vtuz0srbR2hqbwSb7OuvVS5yfVx47lfHkn0+vhSw8NxH3XsqugqYy64qqr6FvDXXvFoncpjy41cuHKNuiKhLSDsKsVx6Nw7mAhwh0kHut0V2L0eQpREBERAREQEREGpERAWSIsjFERaGNSoGgkrzGPxRe6dXKY5SvTVwC0g7l5PFBoJ1SkHOX8Oua2U2WyWDDK30xu4+kzZKRvpiTy8J2Kxo0b5C97XyMxa6xwVKZGdwO/wCAPUK8weCyMTEcjsy2TkeELyyy09sMduJmEJiRkNadhzBk75A2b+/a/DloaRMiO1xh23nPgFdNwwyGz1kRl3rL9HsSLbeZkEDvIBXn2evVSuo2l2QgasmYId9PeCckZTAEuEAAZntav1XkbNWB+LgrKth47pi02Ntm36b9HXXokgyCLNPKYsYtnbj3rUyZuLk/NAmSBm7I9x4Wtt2Ls0ZIkRE8euiFnhsE52qGNkjWEmIibA2E3HgrijocgXNxGV8upWcsprTeGN3tw1VwVDDgdxHqrzEYaOt6qsQxeWN1XtlPGel6YDw4RDmi43i2zhq+Kr1YOpa9ORJczZnz5WE9y4F2Y3c2+fnj1yERFpkUKUQEREBERQalksVkqCIiAsVksUGNVpLSBtBXkK1OHb447s7r2FRsggZwV5LGsLXEGJ5Z7PD5SDnaRJXZh27O7u71yMsu7C84HntsOJUyXFc6KpElvV+MnivRUh2Q0SNhLRJnMhoyntC+QkZkqswsBvv3R6L0uhCAaYJGWu8/w/W6e8u8QuXPJ28WMVlagwO1GtqsfEjXOY4ix8F24N5cC1whzYk7DOXLJdGKxLMRUeQwuNyXXAYIsdYX2G24ZpgKDhLiCW6gbJBE2F4zzErz7PTqxcwHP033+FodQm2/PaJiByzF+AW+uCEom47uWcrUyZ6rXDUgwQBYcPNZOrgZqKRBA64Lj0nSOqYWMq9JFZpXTYb2WCTvXlsTja31EiCdW+etE5bLA+HNXRwZhznVNQbNUAu73HIchPEKlw+iX16pLT2Gk313Ouee62X2Hrh11bXjydrZI9N+SWKBa8OMW13E/SA0/Ekngqt0TbLZy2LLE4Z1EikGEtcBrv1trXOJZq5asfmzzaVgunGy4zTk5NzLVERFpgREQFKIgIiINaIiyCIiAilQgLzelQdd3ZgZ7fFelVfpXDF7LZjZv2qweXPLPr3XdhDBk75+VxmRI3LdTdtTJcfr0Iqk26mB9/NX2AxMtYZjWa+k4zEOIJZO6YjxXlsM6WyrXRVSJa4Sx1nDzBB2OGYK5s546+PL171tBoYyjQF3N7ZIuXa37QGZuM7WFlT/AJOaRcXVaLzL2VCDOZY60xwII8F0aKrOYW6rtcGwN2vbA+l0cO7gufFYEOxAxXaDx9Qa3suBt2jEbcxEkBeM166PXRjGgSFzMaR82iOHitrzK2NFojf6dZpCu7DPkA9/NdVXVIgqsoPIPBdFepb7qVYr8bRbsXLo9rWEwInON66Kr1wudBEcOSk38Lr69DiMK2qyCLwvI4miWOLTsy4r1dDXcyQ5jGgZumT9+CqsVh9choguJhpBESbDzXpxZ9bq/K8ubj7Y7n2KRQpKhdz54pUKUBERBKIiDUiKVkEREBEUoIRSiDzWlsKWvLosTbwuuXDU5cLL1OJw7Xt1Xd28FacVo7UbTfvY0GMpy6+yZXxrGbrmFLVbAVno3DyJXNqWCvNG0OyubLJ2YYtb3kQQYI+k7uHLhxXc/Tv9kKbWxUJcXPtDQYGq0m5BDKZi3abeYBWNfDyvPY5xY66zj61lNPRU6srrpvtt5+ot1ZeawukB9vbyjP1Vth8UCJnP1sInftP9JvVJlFox2w7N+V4NuHyoqVB99vWfiuA1hsudlhwIj7+ag1wTMzbuvbsg7fHYsXFqZNtXetGHpFzwdgkn29lkX5A/0+yVcUGAMZBe7IcNpO4BTrfxvtNeuH8ocC+oyDXc1jb6mQI3O3rk0I0YftMc90ODmteGw1zDa7SQRIEwbgcZXVj3Uz+srgnPUYNY8ATMDbnvXJh6LGslhMFxs65EBt5Fov5FdHFNzVcvNdXcZoiLocoiIgKVClBCKUQa0RFkEREBSiICIiAt+PE0KfJ3+Ny55XdiQDQpuBkFgcDv1pcPVTL43x/9K+myyusA+yq6TbLuwb4XJk7sfFyxioPyiwWs0uAvE2V/QdI62rRimy0zxWMctXbec7Y6fOWVXNPWXDyVrh8fkDyjMAbco2SOMla9K4WHlw6joqlL425dfC7JJlHDbcbp6d2Pzy8Rwm56mVP6Zcmbm/dJJMWJMbzvXnBiDEdTn1yWxuKsfXz68k6H9j0P6aYzvbbfaIHqmDY2q9zngPAAbBvJN/BUgxAgn2tA67ld6IxDAC12ZGsTt2rOWNk3G8c5bqt+KxlFg/Nmm0NINtVpB2br7M5WWIYwOin9ENgQRBLQXNggGzi4dyl2o4PdZxa202I13BhIHJx6C1Fbwn+dvPmy3dIRSoXo8khERARFKCERFBrREUBFKICIiAiKo0hpKxaw83f+PyrJsRpjFyDTblBL42wCdXyv4K9FXXp0mD9imxp/laG+y8jQE652BrvIL2WjqMALy5sus09uDHdtQ9sBMM+634tq46RgrmnsdfyvQ4Z1ltc2c1z4PJbXvjrrgsPRX6S0drNkZkHrn1vXhNIYVzHxB3r6QKoJvPW/eqL8ocEHlrQ4N1iNYm8NGZ42XvxZWXTn5sJZt4Uv2oH++audLaNptYHMBs4A37TgWuJMG2tYm1obszVWMA/VDmdtpyc33nLkV2OKsNc7+Wzmt1OsRmbee/Pv+Fzfm3DNpHMHrNbaWfFNJtb6NruLgPHru8leKp0VQP1HLnnnuVspVEREBEQIJREQQimERGpSi1Va7GfU4Dmb+Gayrairaul2D6QXf3R538lw1tJVHZENH8Ofib+EIi9qVGtEuIA4mFwVtLNEhjS42/hF5332btqpHvvMknebnxU0T2uYI8O17Ed61IbdeIxlR31OAF+y3LvOZ9Fwa0rZin/A671gxaR14RnYf+F3ovdaOaCwHgF4zCjsP/CV7DQbw+mwg2LR8EcwZC5v5HyOr+NfazxLJkqtDbq+q0rSqXFNh3euaV05LnBkQttYjNacF9PXW5cmkMWGjNTW63vUYYnSDGXc4CON15DS2l3VHazBDRkb36+Ny349prG+WzeVhiMDqsiIXRhJj7+ubO5ZefisxelC5jW7Q/WO6A0tjv1j4LXonSBougyWO+obv4hx9R3LnrUYJXM4Lrnxx3697h8Sx4lrg4enMZjvWf5pv7o8AvBUahaQQSCNoMHxCusFpmoB2iH3i4ANgMi2N+2VnRt6YBSq6hphjvqBafEeIv5LvY8OEtII3gyPJBkilEVClQpQEREBERBTaYruGqGvIzDgDcbpi4m/gqdasOLvbvDX97SW/wDWfBbmsTSMdZQtwpLYykrpGhrFk0QQTvE8jY+q6W0lhXaA0z1F/ZUcGJfJA5eJufVbmhcmHlz77JPt7qwDUHZhR2XfhKjQOmHUHkGSwntAZg/vN4+q2YYdl34SqYggk7JPdf064rOWMymq1jlcbuPq2ExTKrA9jg5u8ehByPA3VNpUgOC8XhMU9jtem8tdvac+YyI52VjU0+94Gu1riP2m2J5jLwAXNeGy+euqc8s/149vgD2CRu3qlrUn1XkDKVyaP/KWmxpa4PvkQGkd5kFdWA0/hmN7T3axz7DifHJefTLH8ev9mF/XYzANYPp7UZlc2Kww1HPcYABMlacT+VVG+pTqPO92qxp5EFxHgqHSel6lbsmGsFwxuXAuO30W8OPK33xjPlwk/wA+uPDU9cu4l3qSuTEYUhWGjXQ88x6Qt+NZcrscLz7WLrossObvRiwqth3mrDDskCN5Pk0eyo0BiyY8tMgkHeDB8Qu0U1i6jwUGVDS725w4cbHxHvKsaGl2O+qWnjceI+FTvoLU5imh6tjwRIII3gyPELJUOhDFSN7TPl13q/WaoiIqqEUog8ZhzD2nYQ4Hj2dYeYC7KYVdWBiRmCHA8QunBYkOyF923uG0Z+60ysG0icgVsbhH7GOP8pWvD4iZBqlrbdkufE7YaLLYadB31VGE/gqO89RQZjCP/cd/wn4VPpepHZ8VZvwuHDSdZlgT+rf7sXmary93MwB5BUdmjqdi7ebch15LtAUU6eq0DcFkFR2YY5nYAZ+FVxc81bsfqsI2uy5bSfToqsLblQaWsnnw9U/NngfLzutm1ZworTqnd4H5SD+6f7q3wio0hp3efwpDOPstjzARo2IFAw+OHofuu7Hi/MD0VeLPb/MPT4VnjBZv4QiKbGssHbs+us1v0Y/McLLa+nrAt3hVuFqarwTsMH0PuqL8NWTWSsg1bmNUGg0lg+gu5rFjUbZBUseWPLm2IHuJlXOCx7X2ydu38lSYj6nch6rUEsHrEVFh9JvZAd22/wB4cjt7/FXFDEMeOy4HeNo5hYsVsRSiivFhc9bCyZbmt4WYXoyxptfqtOu6by0tDm2cRbdkFsDam5h46rhPcDCnAPHa/F8L0mitJUBDMRR1m/6xn1N/EzJwG8QbZOKDymPrPDdV2qJ2N3DmJz4rVouhrP1tjb95y9z3LPT1YPr1HNBDNYhguOwDDTB3gTzJW3RmLa0ahsZJnYee5B2VFlTbFz1wUtZJ4dXWWZ4DL5VGU78+vJcj/qK7Fx1GwZ35d2aVIwcLrMLFwWTVGkyoJUqAEGJzWagC6ycg1PMOZzPorWsAabSOKqa2befsVYUz2Y2HqURpaq3SFPVfOx1+/b896shmsNI0tZk7W3+fL0VHfoeoX029nWIdqRrasdklpyM2bHcVdinH+gvt/tv/AJLx+gceaNUOBgGxkNcJgwS1wIMSeNzC9Q78pKhuHg/7hh/7agze+LfmHf8AOH/qXHVqzbULY3u18/5RuSpp+r++0c6NIDvLqUKsxWl5Jc54cYA7LKYG2LUwGnM5kG2RyQacRYn+Ud4lx8nsWsLXSeX9o23DcJnPaSSST9lmVRkOuvFZ4asWPDuU8toWtqg9eKD1msN6Kn/SCizo2pN3ej8jyKIqMNE5u7vdWpzRERw6T+gcwqlu1SiqrrAfqev32rq+URETsWrE/TT/AA+zURSrHO5GoiKycjfZSiDFvupcpRBqr/s/i+VYMy7vhERK0hdB+l3I+iIqjzjMwteO+s9bURStOjB/qanNqv8ASf8Am9n+1p/4MQiIfitofQOtyzPsoRVAZ9/so+yIg7UREH//2Q=="
-          alt=""
-        />
+        <img className="footer__albumLogo" src={props.song.img_src} alt="" />
         <div className="footer__songInfo">
-          <h4>Yeah!</h4>
-          <p>Usher</p>
+          <h4>{props.song.title}</h4>
+          <p>{props.song.artist}</p>
         </div>
       </div>
 
       <div className="footer__center">
         <ShuffleIcon className="footer__green" />
-        <SkipPreviousIcon className="footer__icon" />
-        <PlayCircleOutlineIcon fontSize="large" className="footer__icon" />
-        <SkipNextIcon className="footer__icon" />
+        {/* <SkipPreviousIcon className="footer__icon" /> */}
+        <IconButton onClick={() => props.SkipSong(false)}>
+          <SkipPreviousIcon className="footer__icon" />
+        </IconButton>
+
+        {/* <PlayCircleOutlineIcon fontSize="large" className="footer__icon" /> */}
+
+        <IconButton
+          className="footer__icon"
+          onClick={() => props.setIsPlaying(!props.isPlaying)}
+        >
+          {props.isPlaying ? (
+            <PauseCircleOutlineIcon className="footer__icon" fontSize="large" />
+          ) : (
+            <PlayCircleOutlineIcon className="footer__icon" fontSize="large" />
+          )}
+        </IconButton>
+
+        <IconButton onClick={() => props.SkipSong()}>
+          <SkipNextIcon className="footer__icon" />
+        </IconButton>
+
+        {/* <SkipNextIcon className="footer__icon" /> */}
         <RepeatIcon className="footer__green" />
       </div>
 
