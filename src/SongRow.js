@@ -9,6 +9,7 @@ function SongRow({ track = "test" }) {
         <h1>{track.name}</h1>
         <p>
           {track.artists.map((artist) => artist.name).join(", ")}
+          &nbsp;
           {track.album.name}
         </p>
       </div>

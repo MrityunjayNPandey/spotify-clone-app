@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
-import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
-import PauseCircleOutlineIcon from "@mui/icons-material/PauseCircleOutline";
+import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled";
+import PauseCircleFilledIcon from "@mui/icons-material/PauseCircleFilled";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import ShuffleIcon from "@mui/icons-material/Shuffle";
@@ -28,13 +28,13 @@ function Footer(props) {
           onClick={() => props.SkipSong(false)}
         />
         {props.isPlaying ? (
-          <PauseCircleOutlineIcon
+          <PauseCircleFilledIcon
             className="footer__icon"
             fontSize="large"
             onClick={() => props.setIsPlaying(!props.isPlaying)}
           />
         ) : (
-          <PlayCircleOutlineIcon
+          <PlayCircleFilledIcon
             className="footer__icon"
             fontSize="large"
             onClick={() => props.setIsPlaying(!props.isPlaying)}
