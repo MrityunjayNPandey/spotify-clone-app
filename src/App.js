@@ -33,6 +33,13 @@ function App() {
       src: "https://pagalaworld.in/files/download/type/128/id/30293",
     },
     {
+      title: "Indian Summer",
+      artist: "Shuba",
+      img_src:
+        "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/21/bd/c2/21bdc287-6c9e-abb7-0030-958cbcd16e6a/196193418378.png/400x400cc.jpg",
+      src: "https://mp3.lyricstuff.com/wp-content/uploads/2021/07/Shuba.mp3",
+    },
+    {
       title: "Step On Up",
       artist: "Ariana Grande",
       img_src:
