@@ -8,13 +8,20 @@ import { useDataLayerValue } from "./DataLayer";
 import { Container, Form } from "react-bootstrap";
 import SpotifyWebApi from "spotify-web-api-node";
 import { getTokenFromUrl } from "./spotify";
-
+import TrackSearchResult from "./TrackSearchResult";
 const spotifyApi = new SpotifyWebApi({
   clientId: "7feed2ffa419451b853bd5dff8492ecb",
 });
 const spotify = new SpotifyWebApi();
+
 function Header() {
   const [{ user, token }, dispatch] = useDataLayerValue();
+
+  function chooseTrack(track) {
+    setPlayingTrack(track);
+    setSearch("");
+    setLyrics("");
+  }
 
   useEffect(() => {
     const hash = getTokenFromUrl();
@@ -92,20 +99,36 @@ function Header() {
   }, [search, token]);
 
   return (
-    <div className="header">
-      <div className="header__left">
-        <SearchIcon />
-        <Form.Control
-          type="search"
-          placeholder="Search for Artists, Songs, or Podcasts "
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
+    <div className="header__search">
+      <div className="header">
+        <div className="header__left">
+          <SearchIcon />
+          <Form.Control
+            type="search"
+            placeholder="Search for Artists, Songs, or Podcasts "
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
 
-      <div className="header__right">
-        <Avatar src={user?.images[0]?.url} alt={user?.display_name} />
-        <h4>{user?.display_name}</h4>
+        <div className="header__right">
+          <Avatar src={user?.images[0]?.url} alt={user?.display_name} />
+          <h4>{user?.display_name}</h4>
+        </div>
+      </div>
+      <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
+        {searchResults.map((track) => (
+          <TrackSearchResult
+            track={track}
+            key={track.uri}
+            chooseTrack={chooseTrack}
+          />
+        ))}
+        {searchResults.length === 0 && (
+          <div className="text-center" style={{ whiteSpace: "pre" }}>
+            {lyrics}
+          </div>
+        )}
       </div>
     </div>
   );
