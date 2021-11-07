@@ -40,11 +40,11 @@ function App() {
       src: "https://mp3.lyricstuff.com/wp-content/uploads/2021/07/Shuba.mp3",
     },
     {
-      title: "Step On Up",
-      artist: "Ariana Grande",
+      title: "Save Your Tears",
+      artist: "The Weeknd",
       img_src:
-        "https://i.scdn.co/image/ab67616d0000b2732e651648db439a9b5995e065",
-      src: "https://dl256.dlmate09.xyz/?file=M3R4SUNiN3JsOHJ6WWQ3aTdPRFA4NW1rRVJIOGhPY2hpSjRWeVZzV0VlVkJ0dDVwMGUyc0p2WmZMN01Ia00vd044ZGI0Q3JOYzlYT1lpbUVwc3RqRUZXQXNvUWJvRzNDOHBvbEY4cCtXMTIxMFBXM2t5RkpoZ25LYThqeU80SlBaM3gzZ0UxaXdDM2R3ZUdIL3hMOXZDQ0VpUXVHZERRRG9ENGZOUGpWck00ZWhqK1pQcUN3aThCRHZqREM1cGdS",
+        "https://images.hungama.com/c/1/7c2/e71/52624052/52624052_300x300.jpg",
+      src: "https://lekkiloaded.com/wp-content/uploads/2021/02/The_Weekend_-_Save_Your_Tears-(LekkiLoaded.com).mp3",
     },
     {
       title: "Hold On",
@@ -61,18 +61,17 @@ function App() {
       src: "https://mymp3bhojpuri.in/files/download/type/128/id/31580",
     },
     {
-      title: "What a Shame",
-      artist: "Leyla Blue",
-      img_src:
-        "https://i.scdn.co/image/ab67616d0000b273b8ccef77aa3a5833f2c2785b",
-      src: "https://dl90.dlmate49.xyz/?file=M3R4SUNiN3JsOHJ6WWQ3aTdPRFA4NW1rRVJIOGdQc2xqSjRiakNNckFLWko2SUEvaEtLbUtzVktFYmNPMllML1ZJeHk3REhOWmNXSk5VcmJrSlUyRVRiVDBkZDQ2eG5Xb1lNaFRjdy9WUm4xMEt2b2dUbDNuVGowUWN2RkZMVlRVbFZJaEJCNWd3aUF3K0dBOXhqbzREdXFva0xlUlFwTXR5TWJOT2ZWNVpaRjBEU2FPYVN5Z2NGUy9IN0xwSWxmaC9TZjRBPT0%3D",
+      title: "Kiss Me More",
+      artist: "Doja Cat",
+      img_src: "https://fun2desi.me/siteuploads/thumb/sft109/54315_5.jpg",
+      src: "https://fun2desi.me/files/download/id/54315/type/128",
     },
     {
-      title: "Promiscuous Motive",
-      artist: "Josiane Lessard",
+      title: "Sketchers",
+      artist: "Dripreport & Carbine",
       img_src:
-        "https://i.scdn.co/image/ab67616d0000b273fc4d4176928a0b91a2588755",
-      src: "https://ccii.bcbbecbddebaafe.xyz/?file=M3R4SUNiN3JsOHJ6WWQ3aTdPRFA4NW1rRVJIOGx1RXRtZHM3akRjeEFLVklvOFkzbk1xbEw4VldaWUVhMzU2akZkRWZ2ZzdLZnQyQ0l3eWN1WTAxQ1Y2TzQ5OHJ2SFRKOW84MEV1MStYQmV6dU9lMzNSeDNtZy9nYnBiQUJlc1FhMzUzcG45ejBqS2JrYlNHbnd6M3BtbTRwVWpHUGdJSG9taE9iOU9DdE0xdXpEdkdidVBoblpNS29HM1NxWnRiMC9HVHRUN3gwYk13dk5sS1JudDZkcHhSd0tYenl1TFlwRU1XdjRrTzFVQ3R1dUd6Q1lzbUk2aVJiVDVtT3gwUDdPNzdZeDhSeFNRaCsyMnF5YUlrL1dnY1laOXp3R2VRek1qOE5UNjNSNHo3WDhMQ0xlMnkrK3pYcFB4NXIwalRvL2ZPa1o4ZHgxNzBIcHF1RVlKWjZRa3d0LzZINTVrPQ%3D%3D",
+        "https://a10.gaanacdn.com/images/albums/13/3089713/crop_480x480_3089713.jpg",
+      src: "https://paglasongs.com/files/download/type/128/id/838",
     },
   ]);
 
