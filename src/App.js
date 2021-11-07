@@ -12,11 +12,11 @@ function App() {
   const [{ user, token }, dispatch] = useDataLayerValue();
   const [songs] = useState([
     {
-      title: "Levitating",
-      artist: "Dua Lipa",
+      title: "Sketchers",
+      artist: "Dripreport & Carbine",
       img_src:
-        "https://upload.wikimedia.org/wikipedia/en/f/f5/Dua_Lipa_-_Future_Nostalgia_%28Official_Album_Cover%29.png",
-      src: "https://mymp3bhojpuri.in/files/download/type/128/id/17928",
+        "https://a10.gaanacdn.com/images/albums/13/3089713/crop_480x480_3089713.jpg",
+      src: "https://paglasongs.com/files/download/type/128/id/838",
     },
     {
       title: "Build a Bitch",
@@ -26,11 +26,11 @@ function App() {
       src: "https://www.pagolworld.in/files/download/id/6511",
     },
     {
-      title: "Dinero",
-      artist: "Trinidad Cardona",
+      title: "Levitating",
+      artist: "Dua Lipa",
       img_src:
-        "https://i2.wp.com/www1.naijaforbe.com/wp-content/uploads/2021/09/1-2107.jpg?w=662&ssl=1",
-      src: "https://pagalaworld.in/files/download/type/128/id/30293",
+        "https://upload.wikimedia.org/wikipedia/en/f/f5/Dua_Lipa_-_Future_Nostalgia_%28Official_Album_Cover%29.png",
+      src: "https://mymp3bhojpuri.in/files/download/type/128/id/17928",
     },
     {
       title: "Indian Summer",
@@ -47,6 +47,19 @@ function App() {
       src: "https://lekkiloaded.com/wp-content/uploads/2021/02/The_Weekend_-_Save_Your_Tears-(LekkiLoaded.com).mp3",
     },
     {
+      title: "Kiss Me More",
+      artist: "Doja Cat",
+      img_src: "https://fun2desi.me/siteuploads/thumb/sft109/54315_5.jpg",
+      src: "https://fun2desi.me/files/download/id/54315/type/128",
+    },
+    {
+      title: "Dinero",
+      artist: "Trinidad Cardona",
+      img_src:
+        "https://i2.wp.com/www1.naijaforbe.com/wp-content/uploads/2021/09/1-2107.jpg?w=662&ssl=1",
+      src: "https://pagalaworld.in/files/download/type/128/id/30293",
+    },
+    {
       title: "Hold On",
       artist: "Justin Bieber",
       img_src:
@@ -59,19 +72,6 @@ function App() {
       img_src:
         "https://i.scdn.co/image/ab67616d0000b273a111c87c210cc9bff93948bd",
       src: "https://mymp3bhojpuri.in/files/download/type/128/id/31580",
-    },
-    {
-      title: "Kiss Me More",
-      artist: "Doja Cat",
-      img_src: "https://fun2desi.me/siteuploads/thumb/sft109/54315_5.jpg",
-      src: "https://fun2desi.me/files/download/id/54315/type/128",
-    },
-    {
-      title: "Sketchers",
-      artist: "Dripreport & Carbine",
-      img_src:
-        "https://a10.gaanacdn.com/images/albums/13/3089713/crop_480x480_3089713.jpg",
-      src: "https://paglasongs.com/files/download/type/128/id/838",
     },
   ]);
 
