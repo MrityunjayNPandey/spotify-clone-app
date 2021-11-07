@@ -1,3 +1,10 @@
+#This project is currently in development
+I've taken references from @youtube-"Clever Programmer" and "WebDevSimplified" for implementing spotify api.
+use this link:
+https://TheWolverine796.github.io/spotify-clone-app
+and login with email: pandeymrityunjay796@gmail.com and pwd: AUP!zA?ym$8R or else the website won't show content properly due to change in tokens.
+So far, I've made the login page which redirects to spotify login page which in turns returns a token (which we extract from the redirectring url of spotify), if the token exists, then "Player" renders, or else it "Login page" renders. I've added the songrow list for a Playlist(Discover Weekly) , it shows all the tracks with info in it. I've also added the search functionality, searchig in which lists all the tracks if they exist. I've added a basic player with the tracks hard coded to it, I.e. the player works with play, pause, fwd, amd bwd functionality only. I have to add seek for songs and to volume functionality. I'll also try to play songs when clicked on the track, but I think there might be some problem with that as spotify playback api will need a pro account, which I think is completly useless. I can also add lyrics as the api have that function. I'll do the changes soon enough.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
