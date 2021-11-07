@@ -103,7 +103,7 @@ function Header() {
       <div className="header">
         <div className="header__left">
           <SearchIcon />
-          <Form.Control
+          <input
             type="search"
             placeholder="Search for Artists, Songs, or Podcasts "
             value={search}
