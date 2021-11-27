@@ -9,6 +9,7 @@ import {
   PlayCircleFilled,
 } from "@mui/icons-material";
 import SongRow from "./SongRow";
+import Footer from "./Footer";
 
 function Body({ spotify }) {
   const [{ discover_weekly }, dispatch] = useDataLayerValue();

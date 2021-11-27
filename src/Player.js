@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 import Body from "./Body";
 import Footer from "./Footer";
 import { useState, useRef, useEffect } from "react";
+import { shuffle } from "lodash";
 
 function Player(props, { spotify }) {
   const audioEl = useRef(null);
@@ -43,6 +44,21 @@ function Player(props, { spotify }) {
     }
   };
 
+  const ShuffleSong = (forwards = true) => {
+    if (forwards) {
+      props.setCurrentSongIndex(() => {
+        let temp = props.currentSongIndex;
+        temp += Math.floor(Math.random() * 4);
+
+        if (temp > props.songs.length - 1) {
+          temp = 0;
+        }
+
+        return temp;
+      });
+    }
+  };
+
   return (
     <div className="player">
       <div className="player_body">
@@ -53,7 +69,9 @@ function Player(props, { spotify }) {
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         SkipSong={SkipSong}
+        ShuffleSong={ShuffleSong}
         song={props.songs[props.currentSongIndex]}
+        spotify={spotify}
       />
       <audio
         className="c-player--audio"

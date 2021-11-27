@@ -5,7 +5,7 @@
   bottom: 0;
   height: 65px;
   width: 97%;
-  background-color: #282828;
+  background: linear-gradient(black, rgb(61, 61, 61));
   padding: 20px;
 }
 

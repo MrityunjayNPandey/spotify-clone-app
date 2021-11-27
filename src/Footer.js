@@ -45,7 +45,8 @@ function Footer(props) {
           className="footer__icon"
           onClick={() => props.SkipSong()}
         />
-        <RepeatIcon className="footer__green" />
+        <RepeatIcon className="footer__green"
+        onClick={() => props.ShuffleSong()} />
       </div>
 
       <div className="footer__right">
