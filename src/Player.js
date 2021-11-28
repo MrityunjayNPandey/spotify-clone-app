@@ -9,7 +9,9 @@ import { shuffle } from "lodash";
 function Player(props, { spotify }) {
   const audioEl = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-
+  var duration = audioEl.duration;
+  var currentTime = audioEl.currentTime;
+  var percentage = currentTime / duration;
   useEffect(() => {
     if (isPlaying) {
       audioEl.current.play();

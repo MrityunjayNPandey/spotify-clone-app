@@ -58,7 +58,7 @@ function Footer(props) {
             <VolumeDownIcon />
           </Grid>
           <Grid item xs>
-            <Slider />
+            <Slider size="small" />
           </Grid>
         </Grid>
       </div>
