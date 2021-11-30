@@ -95,23 +95,21 @@ function Footer(props) {
       </div>
 
       <div className="footer__right">
-        <Grid container className="space-x-3 md:space-x-4">
-          <Grid item>
-            <PlaylistPlayIcon />
-          </Grid>
-          <Grid item>
-            <VolumeDownIcon />
-          </Grid>
-          <Grid item xs>
-            <Slider
-              size="small"
-              className="w-14 md:w-28"
-              // value={50}
-              // onChange={(e) => setVolume(Number(e.target.value))}
-              min={0}
-              max={100}
-            />
-          </Grid>
+        <div className="footer__icon">
+          <PlaylistPlayIcon />
+        </div>
+        <div className="footer__icon">
+          <VolumeDownIcon />
+        </div>
+        <Grid item xs>
+          <Slider
+            size="small"
+            className="w-14 md:w-28"
+            defaultValue={50}
+            // onChange={(e) => setVolume(Number(e.target.value))}
+            min={10}
+            max={100}
+          />
         </Grid>
       </div>
     </div>
