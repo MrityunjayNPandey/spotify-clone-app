@@ -9,12 +9,14 @@ import { shuffle } from "lodash";
 function Player(props, { spotify }) {
   const audioEl = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  var duration = audioEl.duration;
-  var currentTime = audioEl.currentTime;
-  var percentage = currentTime / duration;
+  const duration = audioEl.duration;
+  const currentTime = audioEl.currentTime;
+  const percentage = currentTime / duration;
+  const [volume, setVolume] = React.useState();
   useEffect(() => {
     if (isPlaying) {
       audioEl.current.play();
+      setVolume(50);
     } else {
       audioEl.current.pause();
     }
@@ -50,7 +52,12 @@ function Player(props, { spotify }) {
     if (forwards) {
       props.setCurrentSongIndex(() => {
         let temp = props.currentSongIndex;
-        temp += Math.floor(Math.random() * 4);
+        temp += Math.floor(Math.random() * props.songs.length);
+
+        if (temp > props.songs.length - 1) {
+          temp = 0;
+          temp += Math.floor(Math.random() * props.songs.length);
+        }
 
         if (temp > props.songs.length - 1) {
           temp = 0;
@@ -61,10 +68,22 @@ function Player(props, { spotify }) {
     }
   };
 
+  const RepeatSong = (forwards = true) => {
+    if (forwards) {
+      props.setCurrentSongIndex(() => {
+        let temp = props.currentSongIndex;
+        temp--;
+        return temp;
+      });
+    }
+  };
+
   return (
     <div className="player">
       <div className="player_body">
-        <Sidebar />
+        <div id="fadeshow1">
+          <Sidebar />
+        </div>
         <Body spotify={spotify} />
       </div>
       <Footer
@@ -74,6 +93,8 @@ function Player(props, { spotify }) {
         ShuffleSong={ShuffleSong}
         song={props.songs[props.currentSongIndex]}
         spotify={spotify}
+        RepeatSong={RepeatSong}
+        percentage={percentage}
       />
       <audio
         className="c-player--audio"
