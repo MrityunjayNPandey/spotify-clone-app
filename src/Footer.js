@@ -3,6 +3,8 @@ import { useCallback } from "react";
 import "./Footer.css";
 import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled";
 import PauseCircleFilledIcon from "@mui/icons-material/PauseCircleFilled";
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import ShuffleIcon from "@mui/icons-material/Shuffle";
@@ -59,6 +61,7 @@ function Footer(props) {
 
       <div className="footer__center">
         <ShuffleIcon
+          id="fadeshow1"
           className="footer__green"
           onClick={() => props.ShuffleSong()}
         />
@@ -67,13 +70,14 @@ function Footer(props) {
           onClick={() => props.SkipSong(false)}
         />
         {props.isPlaying ? (
-          <PauseCircleFilledIcon
+          <PauseCircleOutlineIcon
             className="footer__icon"
+            className="footer__green"
             fontSize="large"
             onClick={() => props.setIsPlaying(!props.isPlaying)}
           />
         ) : (
-          <PlayCircleFilledIcon
+          <PlayCircleOutlineIcon
             className="footer__icon"
             fontSize="large"
             onClick={() => props.setIsPlaying(!props.isPlaying)}
@@ -89,12 +93,13 @@ function Footer(props) {
           onClick={() => props.SkipSong()}
         />
         <RepeatIcon
+          id="fadeshow1"
           className="footer__green"
           // onClick={() => props.RepeatSong()}
         />
       </div>
 
-      <div className="footer__right">
+      <div id="fadeshow1" className="footer__right">
         <div className="footer__icon">
           <PlaylistPlayIcon />
         </div>
