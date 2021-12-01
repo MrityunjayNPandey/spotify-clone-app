@@ -60,3 +60,15 @@
 .body__icons > .MuiSvgIcon-root {
   margin-right: 20px;
 }
+
+@media only screen and (max-width: 700px) {
+  #fadeshow12 {
+    display: flex;
+    flex-direction: column;
+  }
+  #fadeshow121 {
+    height: 100%;
+    align-items: left;
+  
+  }
+}
