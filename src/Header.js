@@ -53,7 +53,7 @@ function Header() {
     if (!token) return;
     let cancel = false;
     spotifyApi.searchTracks(search).then((res) => {
-      //console.log(res.body.track.items);
+      console.log(res.body.track);
       if (cancel) return;
       setSearchResults(
         res.body.tracks.items.map((track) => {
