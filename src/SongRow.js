@@ -1,9 +1,15 @@
 import React from "react";
 import "./SongRow.css";
+import { useState, useEffect } from "react";
 
-function SongRow({ track = "test" }) {
+function SongRow({ track, chooseTrack }) {
+  
+  function handlePlay() {
+    chooseTrack(track);
+  }
+
   return (
-    <div className="songRow">
+    <div className="songRow" style={{ cursor: "pointer" }} onClick={handlePlay}>
       <img className="songRow__album" src={track.album.images[0].url} alt="" />
       <div className="songRow__info">
         <h1>{track.name}</h1>

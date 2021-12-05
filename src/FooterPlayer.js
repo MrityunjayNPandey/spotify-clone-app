@@ -1,21 +1,47 @@
-import { useState, useEffect } from "react"
-import SpotifyPlayer from "react-spotify-web-playback"
+import { useState, useEffect } from "react";
+import SpotifyPlayer from "react-spotify-web-playback";
+import SpotifyWebApi from "spotify-web-api-node";
+import { useDataLayerValue } from "./DataLayer";
+import { getTokenFromUrl } from "./spotify";
 
-export default function Player({ accessToken, trackUri }) {
-  const [play, setPlay] = useState(false)
+const spotifyApi = new SpotifyWebApi({
+  clientId: "7feed2ffa419451b853bd5dff8492ecb",
+});
+const spotify = new SpotifyWebApi();
 
-  useEffect(() => setPlay(true), [trackUri])
+export default function Player({ trackUri }) {
+  const [play, setPlay] = useState(false);
 
-  if (!accessToken) return null
+  const [{ user, token }, dispatch] = useDataLayerValue();
+
+  useEffect(() => {
+    const hash = getTokenFromUrl();
+    window.location.hash = "";
+    const _token = hash.access_token;
+
+    if (_token) {
+      dispatch({
+        type: "SET_TOKEN",
+        token: _token,
+      });
+
+      spotify.setAccessToken(_token);
+    }
+  }, []);
+
+  useEffect(() => setPlay(true), [trackUri]);
+
+  if (!token) return null;
   return (
     <SpotifyPlayer
-      token={accessToken}
+      token={token}
       showSaveIcon
-      callback={state => {
-        if (!state.isPlaying) setPlay(false)
+      callback={(state) => {
+        if (!state.isPlaying) setPlay(false);
       }}
       play={play}
+      // next=
       uris={trackUri ? [trackUri] : []}
     />
-  )
+  );
 }

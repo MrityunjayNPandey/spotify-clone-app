@@ -1,14 +1,21 @@
 //https://developer.spotify.com/documentation/web-playback-sdk/quick-start/#
 export const authEndpoint = "https://accounts.spotify.com/authorize";
-const redirectUri = "https://thewolverine796.github.io/spotify-clone-app/";
+const redirectUri = "http://localhost:3000/";
 const clientId = "7feed2ffa419451b853bd5dff8492ecb";
 
 const scopes = [
-  "user-read-currently-playing",
-  "user-read-recently-played",
+  "streaming",
+  "user-read-email",
+  "user-read-private",
+  "user-library-read",
+  "user-library-modify",
   "user-read-playback-state",
-  "user-top-read",
   "user-modify-playback-state",
+  // "user-read-currently-playing",
+  // "user-read-recently-played",
+  // "user-read-playback-state",
+  // "user-top-read",
+  // "user-modify-playback-state",
 ];
 export const getTokenFromUrl = () => {
   return window.location.hash

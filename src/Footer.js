@@ -3,8 +3,8 @@ import { useCallback } from "react";
 import "./Footer.css";
 import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled";
 import PauseCircleFilledIcon from "@mui/icons-material/PauseCircleFilled";
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
+import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
+import PauseCircleOutlineIcon from "@mui/icons-material/PauseCircleOutline";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import ShuffleIcon from "@mui/icons-material/Shuffle";
@@ -16,6 +16,8 @@ import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
 import Player from "./Player";
 import debounce from "lodash";
+import FooterPlayer from "./FooterPlayer";
+import playingTrack from "./Body";
 
 function Footer(props) {
   const [progress, setProgress] = React.useState(0);
@@ -116,6 +118,7 @@ function Footer(props) {
             max={100}
           />
         </Grid>
+      {/* <FooterPlayer trackUri={playingTrack?.uri} /> */}
       </div>
     </div>
   );
