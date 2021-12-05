@@ -33,12 +33,6 @@ function Body({ spotify }) {
   return (
     <div className="body">
       <Header spotify={spotify} />
-      {playingTrack ? (
-        <div className="header__player">
-          <FooterPlayer
-           trackUri={playingTrack?.uri} />
-        </div>
-      ) : null}
       <div id="fadeshow12" className="body__info">
         <img id="fadeshow1" src={discover_weekly?.images[0].url} alt="" />
         <div className="body__infoText">
@@ -57,12 +51,17 @@ function Body({ spotify }) {
 
         {discover_weekly?.tracks.items.map((item) => (
           <SongRow
-            track={item.track}
-            key={item.track.uri}
-            chooseTrack={chooseTrack}
+          track={item.track}
+          key={item.track.uri}
+          chooseTrack={chooseTrack}
           />
-        ))}
+          ))}
       </div>
+          {playingTrack ? (
+            <div className="header__player">
+              <FooterPlayer trackUri={playingTrack?.uri} />
+            </div>
+          ) : null}
     </div>
   );
 }
