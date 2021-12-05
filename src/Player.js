@@ -84,9 +84,9 @@ function Player(props, { spotify }) {
         <div id="fadeshow1">
           <Sidebar />
         </div>
-        <Body spotify={spotify} />
+          <Body spotify={spotify} />
       </div>
-      <Footer
+      {/* <Footer
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
         SkipSong={SkipSong}
@@ -95,7 +95,7 @@ function Player(props, { spotify }) {
         spotify={spotify}
         RepeatSong={RepeatSong}
         percentage={percentage}
-      />
+      /> */}
       <audio
         className="c-player--audio"
         src={props.songs[props.currentSongIndex].src}

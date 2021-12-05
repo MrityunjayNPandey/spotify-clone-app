@@ -11,12 +11,13 @@ import {
   PlayCircleFilled,
 } from "@mui/icons-material";
 import SongRow from "./SongRow";
+import Footer from "./Footer";
 
 function Body({ spotify }) {
   const [{ discover_weekly }, dispatch] = useDataLayerValue();
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  var [playingTrack, setPlayingTrack] = useState();
+  const [playingTrack, setPlayingTrack] = useState();
   const [lyrics, setLyrics] = useState("");
 
   function chooseTrack(track) {
@@ -25,10 +26,18 @@ function Body({ spotify }) {
     setLyrics("");
   }
 
+  // const trackUri = playingTrack?.uri;
+
+  // FooterPlayer(trackUri);
+
   return (
     <div className="body">
       <Header spotify={spotify} />
-      {/* <FooterPlayer trackUri={playingTrack?.uri} /> */}
+      {playingTrack ? (
+        <div className="header__player">
+          <FooterPlayer trackUri={playingTrack?.uri} />
+        </div>
+      ) : null}
       <div id="fadeshow12" className="body__info">
         <img id="fadeshow1" src={discover_weekly?.images[0].url} alt="" />
         <div className="body__infoText">

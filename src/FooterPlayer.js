@@ -3,6 +3,7 @@ import SpotifyPlayer from "react-spotify-web-playback";
 import SpotifyWebApi from "spotify-web-api-node";
 import { useDataLayerValue } from "./DataLayer";
 import { getTokenFromUrl } from "./spotify";
+import { WebPlaybackTrack } from "react-spotify-web-playback";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "7feed2ffa419451b853bd5dff8492ecb",
@@ -11,7 +12,7 @@ const spotify = new SpotifyWebApi();
 
 export default function Player({ trackUri }) {
   const [play, setPlay] = useState(false);
-
+  const [prev, setPrev] = useState(false);
   const [{ user, token }, dispatch] = useDataLayerValue();
 
   useEffect(() => {
@@ -39,8 +40,9 @@ export default function Player({ trackUri }) {
       callback={(state) => {
         if (!state.isPlaying) setPlay(false);
       }}
+      previous
       play={play}
-      // next=
+      next
       uris={trackUri ? [trackUri] : []}
     />
   );

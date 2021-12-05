@@ -9,6 +9,8 @@ import { Container, Form } from "react-bootstrap";
 import SpotifyWebApi from "spotify-web-api-node";
 import { getTokenFromUrl } from "./spotify";
 import TrackSearchResult from "./TrackSearchResult";
+import FooterPlayer from "./FooterPlayer";
+
 const spotifyApi = new SpotifyWebApi({
   clientId: "7feed2ffa419451b853bd5dff8492ecb",
 });
@@ -108,6 +110,9 @@ function Header() {
             {lyrics}
           </div>
         )}
+      </div>
+      <div id="fadeshow45" className="header__player">
+        <FooterPlayer trackUri={playingTrack?.uri} />
       </div>
     </div>
   );
