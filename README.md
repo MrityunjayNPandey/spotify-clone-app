@@ -3,7 +3,7 @@
 I've taken references from @youtube-"Clever Programmer" and "WebDevSimplified" for implementing spotify api.
 use this link:
 https://TheWolverine796.github.io/spotify-clone-app
-and login with email: pandeymrityunjay796@gmail.com and pwd: AUP!zA?ym$8R or else the website won't show content properly due to change in Client Id.
+and login with email and pwd: (just use your own premium account, and replace the clientId in spotify.js with your client id) or else the website won't show content properly due to change in Client Id.
 So far, I've made the login page which redirects to spotify login page which in turn returns a token (which we extract from the redirectring url of spotify), if the token exists, then "Player" renders, or else it "Login page" renders. I've added the songrow list for a Playlist(Discover Weekly) , it shows all the tracks with info in it. I've also added the search functionality, searchig in which lists all the tracks if they exist. I've added a player which I got from react-spotify-web-playback.
 
 # Getting Started with Create React App
