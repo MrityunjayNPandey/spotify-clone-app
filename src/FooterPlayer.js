@@ -35,6 +35,15 @@ export default function Player({ trackUri }) {
   if (!token) return null;
   return (
     <SpotifyPlayer
+      styles={{
+        activeColor: "#fff",
+        bgColor: "#040404",
+        color: "#fff",
+        loaderColor: "#fff",
+        sliderColor: "#1ed15e",
+        trackArtistColor: "#ccc",
+        trackNameColor: "#fff",
+      }}
       token={token}
       showSaveIcon
       callback={(state) => {

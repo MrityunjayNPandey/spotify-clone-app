@@ -68,6 +68,14 @@
   bottom: 0px;
 }
 
+.header__player1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  z-index: 1;
+}
+
 @media only screen and (max-width: 700px) {
   #fadeshow121 {
     display: hidden;

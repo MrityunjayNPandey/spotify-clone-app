@@ -35,7 +35,8 @@ function Body({ spotify }) {
       <Header spotify={spotify} />
       {playingTrack ? (
         <div className="header__player">
-          <FooterPlayer trackUri={playingTrack?.uri} />
+          <FooterPlayer
+           trackUri={playingTrack?.uri} />
         </div>
       ) : null}
       <div id="fadeshow12" className="body__info">
